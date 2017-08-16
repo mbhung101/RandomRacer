@@ -26,13 +26,15 @@ export default class RaceContainer extends Component {
   render(){
     if (this.state.players.length===0){
       return (
-          <div id="main_container" className = "container">
+          <div>
             <RaceInput onNumberSubmit={this.onNumberSubmit} players={this.state.players}/>
           </div>
       )
     } else{
       return (
-        <Racer/>
+        <div>
+          <Racer players={this.state.players}/>
+        </div>
       )
     }
   }
