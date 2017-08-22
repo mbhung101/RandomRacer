@@ -12,7 +12,7 @@ export default class RaceInput extends Component {
               <Form.Field>
                 <input type="number"/>
               </Form.Field>
-              <Button type='submit'>Submit</Button>
+              <Button color="orange" type='submit'>Submit</Button>
             </Form>
           </div>
         </div>

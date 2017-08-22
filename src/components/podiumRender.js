@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { List, Button } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
 
 
 export default class PodiumRender extends Component {
@@ -16,12 +16,11 @@ export default class PodiumRender extends Component {
 
   render (){
     return(
-      <div className = "ui container" style={{marginTop:20}}>
-      <h2>Podium</h2>
-      <List ordered>
-        {this.podiumCreator(this.props.players)}
-      </List>
-      <Button onClick= {this.props.onBackButtonClick}> Back </Button>
+      <div>
+        <h2>Podium</h2>
+        <List ordered>
+          {this.podiumCreator(this.props.players)}
+        </List>
       </div>
     )
   }

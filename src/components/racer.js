@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PodiumRender from './podiumRender'
+import RandomRace from './randomRace'
+import { List, Button } from 'semantic-ui-react'
+
 
 export default class Racer extends Component {
   constructor(props){
@@ -11,8 +14,13 @@ export default class Racer extends Component {
 
   render (){
     return(
-      <div>
-        <PodiumRender players= {this.state.players} onBackButtonClick={this.props.onBackButtonClick}/>
+      <div className = "ui container" style={{marginTop:20}}>
+        <div style={{padding:20}}>
+          <RandomRace players= {this.state.players} />
+        </div>
+        <div style={{paddingLeft:20}}>
+          <Button color="orange" onClick= {this.props.onBackButtonClick}> Back </Button>
+        </div>
       </div>
     )
   }
