@@ -9,6 +9,7 @@ export default class RaceContainer extends Component {
       players: []
     }
     this.onNumberSubmit = this.onNumberSubmit.bind(this)
+    this.onBackButtonClick = this.onBackButtonClick.bind(this)
   }
 
   onNumberSubmit(event){
@@ -23,6 +24,13 @@ export default class RaceContainer extends Component {
     })
   }
 
+  onBackButtonClick(e){
+    e.preventDefault()
+    this.setState({
+      players: []
+    })
+  }
+
   render(){
     if (this.state.players.length===0){
       return (
@@ -33,7 +41,7 @@ export default class RaceContainer extends Component {
     } else{
       return (
         <div>
-          <Racer players={this.state.players}/>
+          <Racer players={this.state.players} onBackButtonClick={this.onBackButtonClick}/>
         </div>
       )
     }

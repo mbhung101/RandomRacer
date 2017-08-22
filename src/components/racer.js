@@ -12,7 +12,7 @@ export default class Racer extends Component {
   render (){
     return(
       <div>
-        <PodiumRender players= {this.state.players}/>
+        <PodiumRender players= {this.state.players} onBackButtonClick={this.props.onBackButtonClick}/>
       </div>
     )
   }
