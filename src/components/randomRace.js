@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { List } from 'semantic-ui-react'
 export default class RandomRace extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      players: []
+      players: Array.apply(null, Array(this.props.players.length)).map(Number.prototype.valueOf,0),
+      people: this.props.players
     }
     this.randomRace = this.randomRace.bind(this)
     }
@@ -103,7 +104,8 @@ export default class RandomRace extends Component {
       <div>
         <h2> Podium </h2>
         <List ordered>
-          {this.randomRace(this.props.players)}
+          {this.randomRace(this.state.players)}
+          {this.state.names}
         </List>
       </div>
     )

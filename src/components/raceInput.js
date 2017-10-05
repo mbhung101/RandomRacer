@@ -7,8 +7,7 @@ export default class RaceInput extends Component {
   constructor(props){
     super(props)
     this.state = {
-      players: this.props.players,
-      nameDisplay: false
+      nameDisplay: 0
     }
     this.onNumberSubmit = this.onNumberSubmit.bind(this)
     this.nameBoxes = this.nameBoxes.bind(this)
@@ -16,19 +15,14 @@ export default class RaceInput extends Component {
 
   onNumberSubmit(event){
     event.preventDefault()
-    var numPlayers = parseInt(event.target.children[0].firstElementChild.value)
-    var playerArr = []
-    for (var i=0; i<numPlayers; i++){
-      playerArr.push(0)
-    }
     this.setState({
-      players: playerArr,
-      nameDisplay: true
+      nameDisplay: parseInt(event.target.children[0].firstElementChild.value),
     })
   }
 
   nameBoxes(){
-    return this.state.players.map((player)=>
+    var arr = Array.apply(null, Array(this.state.nameDisplay)).map(Number.prototype.valueOf,0)
+    return arr.map((player)=>
       <div style={{width:"250",paddingTop:"5", paddingBottom:"5"}}>
       <Form.Field>
         <input type="text"/>
@@ -38,7 +32,7 @@ export default class RaceInput extends Component {
   }
 
   render (){
-    if (this.state.nameDisplay === false){
+    if (this.state.nameDisplay === 0){
     return(
       <div>
         <div className="ui center aligned middle aligned grid">
