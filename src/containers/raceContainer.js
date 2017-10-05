@@ -6,22 +6,10 @@ export default class RaceContainer extends Component {
   constructor(){
     super()
     this.state = {
-      players: []
+      players: [],
+      names: false
     }
-    this.onNumberSubmit = this.onNumberSubmit.bind(this)
     this.onBackButtonClick = this.onBackButtonClick.bind(this)
-  }
-
-  onNumberSubmit(event){
-    event.preventDefault()
-    var numPlayers = parseInt(event.target.children[0].firstElementChild.value)
-    var playerArr = []
-    for (var i=0; i<numPlayers; i++){
-      playerArr.push(0)
-    }
-    this.setState({
-      players: playerArr
-    })
   }
 
   onBackButtonClick(e){
