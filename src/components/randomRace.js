@@ -85,17 +85,17 @@ export default class RandomRace extends Component {
       if (places[j].length > 1){
         var sort = multiResolver(places[j])
         for (var z in sort){
-          final.push("Player " + sort[z][0])
+          final.push(sort[z][0])
           counter ++
         }
       } else{
         var position = parseInt(j) + 1
-        final.push("Player " + places[j][0][0])
+        final.push(places[j][0][0])
         counter ++
       }
     }
     return final.map((player) =>
-    <List.Item> {player} </List.Item>
+    <List.Item> {this.state.people[player-1]} </List.Item>
     )
   }
 
@@ -105,7 +105,6 @@ export default class RandomRace extends Component {
         <h2> Podium </h2>
         <List ordered>
           {this.randomRace(this.state.players)}
-          {this.state.names}
         </List>
       </div>
     )
