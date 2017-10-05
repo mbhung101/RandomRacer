@@ -10,6 +10,7 @@ export default class RaceContainer extends Component {
       names: false
     }
     this.onBackButtonClick = this.onBackButtonClick.bind(this)
+    this.onNameSubmit = this.onNameSubmit.bind(this)
   }
 
   onBackButtonClick(e){
@@ -19,11 +20,24 @@ export default class RaceContainer extends Component {
     })
   }
 
+  onNameSubmit(event){
+    event.preventDefault()
+    var nameDivs = [event.target.children[0].children]
+    var names = []
+    for (var i = 0; i < nameDivs[0].length; i++){
+    names.push(event.target.children[0].children[i].children[0].children[0].value)
+      }
+    this.setState({
+      players: names,
+      names: true
+    })
+  }
+
   render(){
     if (this.state.players.length===0){
       return (
           <div>
-            <RaceInput onNumberSubmit={this.onNumberSubmit} players={this.state.players}/>
+            <RaceInput onNameSubmit={this.onNameSubmit} onNumberSubmit={this.onNumberSubmit} players={this.state.players}/>
           </div>
       )
     } else{

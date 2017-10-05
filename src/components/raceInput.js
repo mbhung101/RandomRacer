@@ -12,23 +12,9 @@ export default class RaceInput extends Component {
     }
     this.onNumberSubmit = this.onNumberSubmit.bind(this)
     this.nameBoxes = this.nameBoxes.bind(this)
-    this.onNameSubmit = this.onNameSubmit.bind(this)
   }
 
   onNumberSubmit(event){
-    event.preventDefault()
-    var numPlayers = parseInt(event.target.children[0].firstElementChild.value)
-    var playerArr = []
-    for (var i=0; i<numPlayers; i++){
-      playerArr.push(0)
-    }
-    this.setState({
-      players: playerArr,
-      nameDisplay: true
-    })
-  }
-
-  onNameSubmit(event){
     event.preventDefault()
     var numPlayers = parseInt(event.target.children[0].firstElementChild.value)
     var playerArr = []
@@ -70,7 +56,7 @@ export default class RaceInput extends Component {
     )
   } else{
     return (
-      <NameInput onNameSubmit={this.onNameSubmit()} nameBoxes={this.nameBoxes()}/>
+      <NameInput onNameSubmit={this.props.onNameSubmit} nameBoxes={this.nameBoxes()}/>
     )
   }
 }

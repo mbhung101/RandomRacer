@@ -4,7 +4,6 @@ import { Button, Form } from 'semantic-ui-react'
 export default class NameInput extends Component {
   constructor(props){
     super(props)
-    debugger
   }
   render(props){
     return (
